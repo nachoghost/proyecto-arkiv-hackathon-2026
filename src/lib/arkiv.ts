@@ -80,7 +80,6 @@ export async function queryClinicalEvents(
       and([
         eq("entityType", ENTITY_TYPE_CLINICAL),
         eq("patientId", patientId),
-        eq("status", EVENT_STATUS_ACTIVE),
       ]),
     )
     .withPayload(true)

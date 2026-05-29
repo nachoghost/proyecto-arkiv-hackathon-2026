@@ -5,6 +5,16 @@ export type EventType =
   | "lab"
   | "note";
 
+export type ValidationStatus =
+  | "declared"
+  | "document_attached"
+  | "ai_extracted"
+  | "pending_review"
+  | "verified"
+  | "institution_issued"
+  | "corrected"
+  | "discarded";
+
 export interface ClinicalEventPayload {
   patientId: string;
   hospitalId: string;

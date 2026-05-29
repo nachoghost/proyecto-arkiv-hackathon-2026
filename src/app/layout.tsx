@@ -27,7 +27,7 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "InforMed — Historias clínicas verificables",
+  title: "InforMed — Fácil acceso a tu historial clínico",
   description:
     "Timeline de eventos clínicos entre hospitales locales, respaldado por Arkiv (Braga).",
 };

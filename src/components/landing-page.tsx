@@ -27,7 +27,7 @@ export function LandingPage({ onLoginSuccess }: { onLoginSuccess?: () => void })
                 <circle cx="18" cy="12" r="2"/>
               </svg>
             </span>
-            InforMed<small className="font-hanken text-[10px] font-semibold tracking-[0.18em] uppercase text-med-secondary ml-[-3px] self-start mt-[7px]">·MED</small>
+            InforMed
           </div>
           <div className="flex items-center gap-[30px]">
             <a onClick={() => setView("home")} className="text-med-ink-soft text-[14.5px] font-medium cursor-pointer hover:text-med-ink">Inicio</a>
@@ -68,13 +68,13 @@ function HomeView() {
           <div>
             <span className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.04em] text-med-secondary bg-med-secondary-soft px-3 py-1.5 rounded-[999px] mb-[22px]">
               <span className="w-[7px] h-[7px] rounded-full bg-med-secondary-hover shadow-[0_0_0_4px_rgba(22,184,134,.25)]"></span>
-              Historias clínicas sobre Arkiv
+              Fácil acceso a tu historial clínico
             </span>
             <h1 className="font-fraunces text-[clamp(38px,5.4vw,62px)] font-medium leading-[1.04] tracking-[-0.015em]">
-              La historia clínica que <em className="font-italic text-med-secondary">nadie</em> puede alterar.
+              Tu historia clínica, <em className="font-italic text-med-secondary">siempre accesible</em> y verificable.
             </h1>
             <p className="text-[19px] text-med-ink-soft max-w-[30em] my-6">
-              InforMed le da a cada médico un lugar para registrar ingresos, alergias, diagnósticos y evolución — desde hoy en adelante — con un respaldo verificable e imborrable. Sin perder el archivo, sin depender de un solo servidor.
+              InforMed conecta médicos y pacientes en una plataforma segura donde registrar y acceder a historiales clínicos con respaldo verificable e imborrable. Sin perder el archivo, sin depender de un solo servidor.
             </p>
             <div className="flex gap-3.5 flex-wrap items-center">
               <button className="inline-flex items-center gap-2 cursor-pointer border-none font-hanken text-[14.5px] font-semibold px-5.5 py-2.5 rounded-[999px] transition-[transform_0.18s,box-shadow_0.18s] bg-med-secondary text-white shadow-[0_8px_22px_-10px_var(--med-secondary)] hover:translate-y-[-2px] hover:shadow-[0_14px_28px_-10px_var(--med-secondary)]">
@@ -200,53 +200,154 @@ function HomeView() {
         </div>
       </div>
 
-      {/* Features Section */}
-      <section className="py-[84px]" id="features">
-        <div className="max-w-[1180px] mx-auto px-7">
-          <div className="max-w-[44em] mb-[50px]">
-            <div className="text-[12.5px] font-semibold tracking-[0.14em] uppercase text-med-secondary mb-[14px]">Para el equipo médico</div>
-            <h2 className="font-fraunces text-[clamp(28px,3.6vw,42px)] font-medium leading-[1.04] tracking-[-0.015em]">Todo el registro clínico, en un solo flujo simple.</h2>
-            <p className="text-[17px] text-med-ink-soft mt-4">Pensado para que cargar un caso te lleve segundos, no minutos. Lo que escribís queda guardado de forma verificable y disponible para el próximo profesional que atienda al paciente.</p>
+      {/* Features Section - Both Roles */}
+      <section className="py-[100px] relative overflow-hidden" id="features" style={{ backgroundImage: "radial-gradient(var(--med-line) 1px,transparent 1px)", backgroundSize: "22px 22px" }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-med-primary-2/30 to-transparent pointer-events-none"></div>
+        <div className="max-w-[1180px] mx-auto px-7 relative z-1">
+          <div className="text-center mb-[70px]">
+            <div className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.14em] uppercase text-med-secondary bg-med-secondary-soft px-4 py-2 rounded-[999px] mb-[20px]">
+              <span className="w-[8px] h-[8px] rounded-full bg-med-secondary-hover shadow-[0_0_0_4px_rgba(22,184,134,.25)]"></span>
+              Para médicos y pacientes
+            </div>
+            <h2 className="font-fraunces text-[clamp(32px,4vw,48px)] font-medium leading-[1.04] tracking-[-0.015em] mb-6">
+              Una plataforma para <em className="font-italic text-med-secondary">todos</em>.
+            </h2>
+            <p className="text-[18px] text-med-ink-soft max-w-[600px] mx-auto">
+              InforMed conecta médicos y pacientes en una sola plataforma segura donde registrar y acceder a historiales clínicos con respaldo verificable.
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-[18px]">
-            <div className="bg-white border border-med-line rounded-[18px] p-7 transition-[0.2s] relative overflow-hidden hover:translate-y-[-4px] hover:shadow-[0_24px_60px_-28px_rgba(14,46,41,.45)] hover:border-med-line-strong">
-              <div className="w-[48px] h-[48px] rounded-[13px] grid place-items-center mb-[18px] text-white bg-med-secondary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <path d="M14 2v6h6M12 18v-6M9 15h6"/>
-                </svg>
+          <div className="grid grid-cols-2 gap-16">
+            {/* Doctors Column */}
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-med-secondary/10 rounded-full blur-3xl"></div>
+              <div className="relative">
+                <div className="mb-8 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-med-secondary to-med-secondary-hover flex items-center justify-center shadow-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-fraunces text-[26px] font-medium">Para el equipo médico</h3>
+                    <p className="text-[15px] text-med-ink-soft">Todo el registro clínico, en un solo flujo simple.</p>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-secondary to-med-secondary-hover grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <path d="M14 2v6h6M12 18v-6M9 15h6"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Crear registros</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Ingresos, consultas y evolución del paciente con campos claros. Un caso nuevo se carga en pocos toques.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-coral to-[#e05a4a] grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M12 9v4M12 17h.01"/>
+                          <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Alergias y alertas</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Marcá alergias y contraindicaciones que saltan visibles para cualquier médico antes de medicar.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-ink to-[#1a3a2e] grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/>
+                          <path d="M12 7v5l3 2"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Historial completo</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Lo que existe hoy y todo lo que venga después, ordenado en una línea de tiempo que no se puede manipular.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-fraunces text-[21px] font-medium mb-2">Crear registros</h3>
-              <p className="text-[14.5px] text-med-ink-soft">Ingresos, consultas y evolución del paciente con campos claros. Un caso nuevo se carga en pocos toques.</p>
             </div>
-            <div className="bg-white border border-med-line rounded-[18px] p-7 transition-[0.2s] relative overflow-hidden hover:translate-y-[-4px] hover:shadow-[0_24px_60px_-28px_rgba(14,46,41,.45)] hover:border-med-line-strong">
-              <div className="w-[48px] h-[48px] rounded-[13px] grid place-items-center mb-[18px] text-white" style={{ background: "var(--med-coral)" }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 9v4M12 17h.01"/>
-                  <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>
-                </svg>
+
+            {/* Patients Column */}
+            <div className="relative">
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-med-secondary/10 rounded-full blur-3xl"></div>
+              <div className="relative">
+                <div className="mb-8 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-med-coral to-[#e05a4a] flex items-center justify-center shadow-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-fraunces text-[26px] font-medium">Para pacientes</h3>
+                    <p className="text-[15px] text-med-ink-soft">Tu historial clínico, siempre a tu alcance.</p>
+                  </div>
+                </div>
+                <div className="space-y-5">
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-secondary to-med-secondary-hover grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                          <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Acceso total</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Consultá todos tus registros médicos, desde consultas hasta internaciones, en una sola plataforma segura.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-coral to-[#e05a4a] grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                          <circle cx="9" cy="7" r="4"/>
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Compartir con médicos</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Autorizá a profesionales de confianza para que accedan a tu historial cuando te atiendan.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="group bg-white border border-med-line rounded-[20px] p-7 transition-all duration-300 relative overflow-hidden hover:shadow-[0_20px_50px_-20px_rgba(14,46,41,.3)] hover:border-med-secondary/30 hover:-translate-y-1">
+                    <div className="absolute inset-0 bg-gradient-to-br from-med-secondary/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="flex items-start gap-5 relative z-1">
+                      <div className="w-[52px] h-[52px] rounded-[14px] bg-gradient-to-br from-med-ink to-[#1a3a2e] grid place-items-center text-white flex-shrink-0 shadow-lg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-fraunces text-[20px] font-medium mb-2 text-med-ink">Datos seguros</h4>
+                        <p className="text-[15px] text-med-ink-soft leading-relaxed">Tu información está protegida con respaldo verificable. Solo vos decidís quién puede verla.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-fraunces text-[21px] font-medium mb-2">Alergias y alertas</h3>
-              <p className="text-[14.5px] text-med-ink-soft">Marcá alergias y contraindicaciones que saltan visibles para cualquier médico antes de medicar.</p>
-            </div>
-            <div className="bg-white border border-med-line rounded-[18px] p-7 transition-[0.2s] relative overflow-hidden hover:translate-y-[-4px] hover:shadow-[0_24px_60px_-28px_rgba(14,46,41,.45)] hover:border-med-line-strong">
-              <div className="w-[48px] h-[48px] rounded-[13px] grid place-items-center mb-[18px] text-white bg-med-ink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/>
-                  <path d="M12 7v5l3 2"/>
-                </svg>
-              </div>
-              <h3 className="font-fraunces text-[21px] font-medium mb-2">Historial completo</h3>
-              <p className="text-[14.5px] text-med-ink-soft">Lo que existe hoy y todo lo que venga después, ordenado en una línea de tiempo que no se puede manipular.</p>
-            </div>
-            <div className="bg-white border border-med-line rounded-[18px] p-7 transition-[0.2s] relative overflow-hidden hover:translate-y-[-4px] hover:shadow-[0_24px_60px_-28px_rgba(14,46,41,.45)] hover:border-med-line-strong">
-              <div className="w-[48px] h-[48px] rounded-[13px] grid place-items-center mb-[18px] text-white" style={{ background: "var(--med-amber)" }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/>
-                </svg>
-              </div>
-              <h3 className="font-fraunces text-[21px] font-medium mb-2">Búsqueda al instante</h3>
-              <p className="text-[14.5px] text-med-ink-soft">Encontrá un paciente o un registro por nombre, documento o diagnóstico — Arkiv consulta como una base de datos común.</p>
             </div>
           </div>
         </div>
@@ -354,9 +455,10 @@ function HomeView() {
   );
 }
 
-function LoginView({ onLoginSuccess }: { onLoginSuccess?: () => void }) {
+function LoginView({ onLoginSuccess }: { onLoginSuccess?: (role: "doctor" | "patient") => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState<"doctor" | "patient">("doctor");
   const [error, setError] = useState("");
 
   const isFormValid = email.includes("@") && password.length >= 4;
@@ -375,7 +477,7 @@ function LoginView({ onLoginSuccess }: { onLoginSuccess?: () => void }) {
     }
 
     if (onLoginSuccess) {
-      onLoginSuccess();
+      onLoginSuccess(role);
     }
   };
 
@@ -398,15 +500,15 @@ function LoginView({ onLoginSuccess }: { onLoginSuccess?: () => void }) {
                 <circle cx="18" cy="12" r="2"/>
               </svg>
             </span>
-            InforMed<small className="font-hanken text-[10px] font-semibold tracking-[0.18em] uppercase text-med-secondary-hover ml-[-3px] self-start mt-[7px]">·MED</small>
+            InforMed
           </div>
         </div>
         <div className="relative z-1">
           <h2 className="font-fraunces text-[clamp(30px,3.4vw,44px)] font-medium leading-[1.04] tracking-[-0.015em] text-white max-w-[13em]">
-            El historial de tus pacientes, <em className="font-italic text-med-secondary-hover">verificable</em> y siempre a mano.
+            Tu historial clínico, <em className="font-italic text-med-secondary-hover">verificable</em> y siempre a mano.
           </h2>
           <p className="text-[rgba(244,241,233,.75)] text-[16px] mt-[18px] max-w-[26em]">
-            Ingresá para registrar y consultar historias clínicas respaldadas sobre Arkiv.
+            Ingresá como médico o paciente para registrar y consultar historiales clínicos respaldados sobre Arkiv.
           </p>
           <div className="relative z-1 bg-[rgba(255,255,255,.05)] border border-[rgba(255,255,255,.13)] rounded-[16px] p-4.5 mt-2.5 flex items-center gap-3">
             <div className="w-[40px] h-[40px] rounded-[11px] bg-gradient-to-br from-med-ink to-med-secondary text-white grid place-items-center font-fraunces text-[15px] flex-shrink-0">MG</div>
@@ -429,24 +531,37 @@ function LoginView({ onLoginSuccess }: { onLoginSuccess?: () => void }) {
 
       <div className="flex items-center justify-center p-10">
         <div className="w-full max-w-[380px]">
-          <div className="text-[12.5px] font-semibold tracking-[0.12em] uppercase text-med-secondary mb-3">Acceso profesional</div>
-          <h2 className="font-fraunces text-[30px] font-medium mb-1.5">Bienvenido de nuevo</h2>
-          <p className="text-med-ink-soft text-[14.5px] mb-7">Ingresá con tu cuenta del equipo médico.</p>
+          <div className="text-[12.5px] font-semibold tracking-[0.12em] uppercase text-med-secondary mb-3">Acceso a la plataforma</div>
+          <h2 className="font-fraunces text-[30px] font-medium mb-1.5">Bienvenido a InforMed</h2>
+          <p className="text-med-ink-soft text-[14.5px] mb-7">Ingresá como médico o paciente para acceder a tu historial clínico.</p>
 
           <div className="flex gap-2 mb-5">
-            <button className="flex-1 px-3 py-2.5 border border-med-line-strong bg-white rounded-[12px] font-hanken text-[13.5px] font-semibold text-med-muted cursor-pointer transition-[0.15s] flex items-center justify-center gap-1.5 border-med-secondary bg-med-secondary-soft text-med-ink">
+            <button
+              type="button"
+              onClick={() => setRole("doctor")}
+              className={`flex-1 px-3 py-2.5 border border-med-line-strong rounded-[12px] font-hanken text-[13.5px] font-semibold cursor-pointer transition-[0.15s] flex items-center justify-center gap-1.5 ${
+                role === "doctor" ? "border-med-secondary bg-med-secondary-soft text-med-ink" : "bg-white text-med-muted"
+              }`}
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                 <path d="M19 14c1.5-1.5 2-3.5 2-5a9 9 0 1 0-18 0c0 1.5.5 3.5 2 5"/>
                 <circle cx="12" cy="13" r="3"/>
               </svg>
               Médico/a
             </button>
-            <button className="flex-1 px-3 py-2.5 border border-med-line-strong bg-white rounded-[12px] font-hanken text-[13.5px] font-semibold text-med-muted cursor-pointer transition-[0.15s] flex items-center justify-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setRole("patient")}
+              className={`flex-1 px-3 py-2.5 border border-med-line-strong rounded-[12px] font-hanken text-[13.5px] font-semibold cursor-pointer transition-[0.15s] flex items-center justify-center gap-1.5 ${
+                role === "patient" ? "border-med-secondary bg-med-secondary-soft text-med-ink" : "bg-white text-med-muted"
+              }`}
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                <rect x="3" y="4" width="18" height="16" rx="2"/>
-                <path d="M3 10h18"/>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
               </svg>
-              Administración
+              Paciente
             </button>
           </div>
 
