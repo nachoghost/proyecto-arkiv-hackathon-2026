@@ -1,48 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --med-primary: #fcf6f5;
-  --med-secondary: #3b82f6;
-  --med-secondary-hover: #2563eb;
-  --med-secondary-soft: #dbeafe;
+  --med-primary: #F4F1E9;
+  --med-primary-2: #EDE8DC;
+  --med-secondary: #0E8C6B;
+  --med-secondary-hover: #16B886;
+  --med-secondary-soft: #C8E9D8;
+  --med-coral: #E0654C;
+  --med-amber: #D69A2E;
+  --med-ink: #0E2E29;
+  --med-ink-soft: #2C4A45;
+  --med-muted: #5C6F6A;
+  --med-line: rgba(14,46,41,.12);
+  --med-line-strong: rgba(14,46,41,.22);
 
-  --foreground: #2c2422;
-  /* Sin blanco: superficies = primario o variante crema */
-  --med-surface: #fcf6f5;
-  --med-surface-elevated: #f3e8e6;
-  --med-border: #7b9acc4d;
-  --med-border-strong: #7b9acc;
-  --med-muted: #5c534f;
+  --foreground: #0E2E29;
+  --med-surface: #F4F1E9;
+  --med-surface-elevated: #EDE8DC;
+  --med-border: rgba(14,46,41,.12);
+  --med-border-strong: rgba(14,46,41,.22);
 }
 
 @theme inline {
   --color-background: var(--med-primary);
   --color-foreground: var(--foreground);
   --color-med-primary: var(--med-primary);
+  --color-med-primary-2: var(--med-primary-2);
   --color-med-secondary: var(--med-secondary);
   --color-med-secondary-hover: var(--med-secondary-hover);
   --color-med-secondary-soft: var(--med-secondary-soft);
+  --color-med-coral: var(--med-coral);
+  --color-med-amber: var(--med-amber);
+  --color-med-ink: var(--med-ink);
+  --color-med-ink-soft: var(--med-ink-soft);
+  --color-med-muted: var(--med-muted);
+  --color-med-line: var(--med-line);
+  --color-med-line-strong: var(--med-line-strong);
   --color-med-bg: var(--med-primary);
   --color-med-surface: var(--med-surface);
   --color-med-surface-elevated: var(--med-surface-elevated);
   --color-med-border: var(--med-border);
   --color-med-border-strong: var(--med-border-strong);
   --color-med-text: var(--foreground);
-  --color-med-muted: var(--med-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 html,
 body {
-  background-color: #fcf6f5 !important;
+  background-color: #F4F1E9 !important;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: #7b9acc transparent;
+  scrollbar-color: var(--med-secondary) transparent;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -50,6 +63,16 @@ body {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: #7b9acc;
+  background-color: var(--med-secondary);
   border-radius: 3px;
+}
+
+/* Animation for floating badges */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.animate-bob {
+  animation: bob 5s ease-in-out infinite;
 }
