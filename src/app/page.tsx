@@ -30,7 +30,7 @@ export default function Home() {
   };
 
   if (isLoggedIn) {
-    return <MedtrailApp />;
+    return <MedtrailApp onLogout={() => setIsLoggedIn(false)} />;
   }
 
   return (
