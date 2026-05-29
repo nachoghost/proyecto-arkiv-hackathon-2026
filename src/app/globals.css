@@ -2,9 +2,9 @@
 
 :root {
   --med-primary: #fcf6f5;
-  --med-secondary: #7b9acc;
-  --med-secondary-hover: #6a89b8;
-  --med-secondary-soft: #dce6f2;
+  --med-secondary: #3b82f6;
+  --med-secondary-hover: #2563eb;
+  --med-secondary-soft: #dbeafe;
 
   --foreground: #2c2422;
   /* Sin blanco: superficies = primario o variante crema */

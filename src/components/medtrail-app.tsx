@@ -26,7 +26,7 @@ const inputClass =
 const cardClass =
   "rounded-xl border-2 border-med-secondary/25 bg-med-primary p-5";
 
-export function MedtrailApp() {
+export function MedtrailApp({ onLogout }: { onLogout?: () => void }) {
   const [hospitalId, setHospitalId] = useState<string>(HOSPITALS[0].id);
   const [patientId, setPatientId] = useState<string>(DEMO_PATIENTS[0].id);
   const [eventType, setEventType] = useState<EventType>("allergy");
@@ -118,18 +118,30 @@ export function MedtrailApp() {
     <div className="min-h-screen bg-med-primary text-med-text">
       <header className="border-b-2 border-med-secondary/30 bg-med-primary">
         <div className="mx-auto max-w-5xl px-4 py-6">
-          <p className="text-xs font-medium uppercase tracking-widest text-med-secondary">
-            Puna Tech 2026 · Track Arkiv
-          </p>
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-med-text">
-            MedTrail
-          </h1>
-          <p className="mt-2 max-w-2xl text-sm text-med-muted">
-            Timeline clínico verificable entre hospitales locales. Cada evento es
-            una entidad en{" "}
-            <span className="font-medium text-med-secondary">Braga</span> —
-            auditable, sin UPDATE silencioso.
-          </p>
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-med-secondary">
+                Puna Tech 2026 · Track Arkiv
+              </p>
+              <h1 className="mt-1 text-2xl font-semibold tracking-tight text-med-text">
+                MedTrail
+              </h1>
+              <p className="mt-2 max-w-2xl text-sm text-med-muted">
+                Timeline clínico verificable entre hospitales locales. Cada evento es
+                una entidad en{" "}
+                <span className="font-medium text-med-secondary">Braga</span> —
+                auditable, sin UPDATE silencioso.
+              </p>
+            </div>
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="rounded-lg border-2 border-med-secondary/30 bg-med-surface-elevated px-4 py-2 text-sm text-med-text hover:border-med-secondary/50"
+              >
+                Cerrar sesión
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
